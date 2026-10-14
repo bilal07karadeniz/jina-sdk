@@ -1,0 +1,170 @@
+# Entity: batch_status
+
+main: kit: entity: batch_status: {
+
+  alias: field: {}
+
+  fields: {
+    batch_id: {
+      h: "Batch Id"
+      n: "batch_id"
+      r: true
+      sh: "Unique identifier for the batch job."
+      t: "`$STRING`"
+    }
+    completed_at: {
+      h: "Completed At"
+      n: "completed_at"
+      r: false
+      sh: "ISO 8601 timestamp when job completed (if finished)."
+      t: "`$ANY`"
+    }
+    created_at: {
+      h: "Created At"
+      n: "created_at"
+      r: true
+      sh: "ISO 8601 timestamp when job was created."
+      t: "`$STRING`"
+    }
+    dimensions: {
+      h: "Dimensions"
+      n: "dimensions"
+      r: false
+      sh: "Number of dimensions for output embeddings (1-1024)."
+      t: "`$ANY`"
+    }
+    error: {
+      h: "Error"
+      n: "error"
+      r: false
+      sh: "Error message if job failed."
+      t: "`$ANY`"
+    }
+    error_file_url: {
+      h: "Error File Url"
+      n: "error_file_url"
+      r: false
+      sh: "URL to download error JSONL for failed lines."
+      t: "`$ANY`"
+    }
+    expires_at: {
+      h: "Expires At"
+      n: "expires_at"
+      r: false
+      sh: "ISO 8601 timestamp when output URL expires (created_at + 24h)."
+      t: "`$ANY`"
+    }
+    input: {
+      h: "Input"
+      n: "input"
+      r: false
+      sh: "Inline JSONL lines for small batches."
+      t: "`$ANY`"
+    }
+    input_url: {
+      h: "Input Url"
+      n: "input_url"
+      r: false
+      sh: "URL to input JSONL file (GCS, S3, or HTTP)."
+      t: "`$ANY`"
+    }
+    model: {
+      h: "Model"
+      n: "model"
+      r: true
+      sh: "The model used for embedding."
+      t: "`$STRING`"
+    }
+    normalized: {
+      h: "Normalized"
+      n: "normalized"
+      r: false
+      sh: "If true (default), embeddings are L2-normalized to unit length."
+      t: "`$ANY`"
+    }
+    output_url: {
+      h: "Output Url"
+      n: "output_url"
+      r: false
+      sh: "Signed URL to download output JSONL (24h expiry)."
+      t: "`$ANY`"
+    }
+    stats: {
+      h: "Stats"
+      n: "stats"
+      r: false
+      sh: "Processing statistics."
+      t: "`$ANY`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "Current status of the batch job."
+      t: "`$STRING`"
+    }
+    task: {
+      h: "Task"
+      n: "task"
+      r: false
+      sh: "Task optimization: retrieval, text-matching, clustering, or classification."
+      t: "`$ANY`"
+    }
+    webhook_url: {
+      h: "Webhook Url"
+      n: "webhook_url"
+      r: false
+      sh: "URL to POST notification when job completes."
+      t: "`$ANY`"
+    }
+  }
+
+  name: "batch_status"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "dimensions"
+            "input"
+            "input_url"
+            "model"
+            "normalized"
+            "task"
+            "webhook_url"
+          ]
+          co: {
+            id: "POST /v1/batch/embeddings"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/v1/batch/embeddings"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "batch"
+            }
+            {
+              lit: "embeddings"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

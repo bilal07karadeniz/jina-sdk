@@ -1,0 +1,80 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      description: `Best-in-class embeddings, rerankers and document models for multilingual and multimodal search.
+
+## Capabilities
+
+- **Text embeddings** — dense vectors for semantic search, similarity, clustering and classification, in 100+ languages.
+- **Multimodal embeddings** — images, video, audio and PDFs embedded into the same space as text, so a query in one modality retrieves another.
+- **Reranking** — score a query against a candidate set and reorder it; more accurate than embedding similarity, and the usual second stage after it.
+- **Document OCR** — read a page image and return its content as text or markdown, with tables and layout preserved, over the OpenAI chat completions schema.
+- **Batch embeddings** — the same embedding models over JSONL, asynchronously, for workloads too large to send inline.
+
+## Authentication
+
+Every endpoint except \`GET /v1/models\` requires a key:
+
+\`\`\`
+Authorization: Bearer jina_YOUR_API_KEY
+\`\`\`
+
+Get one at [jina.ai/api-dashboard/key-manager](https://jina.ai/api-dashboard/key-manager).
+
+## Rate limits
+
+Requests per minute and tokens per minute. Anything over a limit answers \`429\`.
+
+| Endpoint | Free | Paid | Premium |
+|---|---|---|---|
+| \`/v1/embeddings\` | 500 RPM · 1M TPM | 500 RPM · 10M TPM | 5,000 RPM · 100M TPM |
+| \`/v1/rerank\` | 500 RPM · 1M TPM | 500 RPM · 10M TPM | 5,000 RPM · 100M TPM |
+| \`/v1/chat/completions\` | 100 RPM · 500K TPM | 100 RPM · 5M TPM | 1,000 RPM · 50M TPM |
+
+## Errors
+
+Failures carry a \`detail\`, a \`code\` from the table below and the \`request_id\` to quote in a support request. \`/v1/chat/completions\` is the exception: it answers in OpenAI's error envelope, with the same code inside it.
+
+| Code | Status | Meaning |
+|---|---|---|
+| \`INPUT_INVALID_LABELS\` | 400 | Invalid training labels |
+| \`INPUT_LABEL_LIMIT_EXCEEDED\` | 400 | Label limit exceeded: <current> labels provided, maximum <limit> allowed for your plan |
+| \`INPUT_MODEL_NOT_FOUND\` | 400 | Model '<model>' not found |
+| \`INPUT_TOKEN_LIMIT_EXCEEDED\` | 400 | Input text exceeds the model's maximum of <max_tokens> tokens |
+| \`AUTH_INVALID_API_KEY\` | 401 | Invalid API key |
+| \`AUTH_INVALID_FORMAT\` | 401 | Invalid authorization format |
+| \`AUTH_MISSING_API_KEY\` | 401 | Authentication required |
+| \`AUTHZ_INSUFFICIENT_BALANCE\` | 403 | Insufficient account balance |
+| \`AUTHZ_RESOURCE_LIMIT_EXCEEDED\` | 403 | Resource limit exceeded for your plan |
+| \`RESOURCE_NOT_FOUND\` | 404 | <resource_type> '<resource_id>' not found or access denied |
+| \`CONFLICT_RESOURCE_BUSY\` | 409 | <resource_type> '<resource_id>' is currently being modified |
+| \`RATE_CONCURRENCY_LIMIT_EXCEEDED\` | 429 | Concurrency limit exceeded: <current>/<limit> concurrent requests |
+| \`RATE_IP_LIMIT_EXCEEDED\` | 429 | IP rate limit exceeded |
+| \`RATE_REQUEST_LIMIT_EXCEEDED\` | 429 | Request rate limit exceeded: <current>/<limit> requests per minute |
+| \`RATE_TOKEN_LIMIT_EXCEEDED\` | 429 | Token rate limit exceeded: <current>/<limit> tokens per minute |
+| \`INTERNAL_ERROR\` | 500 | An unexpected error occurred |
+| \`SERVICE_UNAVAILABLE\` | 503 | Service temporarily unavailable |
+| \`SERVICE_TIMEOUT\` | 504 | Service request timed out |`
+      security: {
+        in: "header"
+        name: "Authorization"
+        prefix: "Bearer"
+        scheme: "HTTPBearer"
+        type: "http"
+      }
+      servers: [
+        {
+          url: "https://api.jina.ai"
+        }
+      ]
+      summary: "Best-in-class embeddings, rerankers and document models for multilingual and multimodal search."
+      title: "Jina Search Foundation API"
+      version: "2026.10.13.1624"
+      website: "https://jina.ai"
+    }
+  }
+}
+

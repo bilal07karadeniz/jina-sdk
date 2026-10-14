@@ -1,0 +1,18 @@
+# BasicBatchStatusFlow
+
+main: kit: flow: BasicBatchStatusFlow:
+{
+  entity: "batch_status",
+  kind: "basic",
+  name: "BasicBatchStatusFlow",
+  step: [
+    {
+      i: {
+        ref: "batch_status_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicBatchStatusFlow"
+}

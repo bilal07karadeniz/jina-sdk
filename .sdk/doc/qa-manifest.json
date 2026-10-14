@@ -1,0 +1,32 @@
+{
+  "files": [
+    "SUMMARY.md"
+  ],
+  "config": ".sdk/doc/qa/vale.ini",
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "> Best-in-class embeddings, rerankers and document models for multilingual and multimodal search.\n>\n> ## Capabilities\n>\n> - **Text embeddings**, dense vectors for semantic search, similarity, clustering and classification, in 100+ languages.\n> - **Multimodal embeddings**, images, video, audio and PDFs embedded into the same space as text, so a query in one modality retrieves another.\n> - **Reranking**, score a query against a candidate set and reorder it; more accurate than embedding similarity, and the usual second stage after it.\n> - **Document OCR**, read a page image and return its content as text or markdown, with tables and layout preserved, over the OpenAI chat completions schema.\n> - **Batch embeddings**, the same embedding models over JSONL, asynchronously, for workloads too large to send inline.\n>\n> ## Authentication\n>\n> Every endpoint except `GET /v1/models` requires a key:\n>\n> ```\n> Authorization: Bearer jina_YOUR_API_KEY\n> ```\n>\n> Get one at [jina.ai/api-dashboard/key-manager](https://jina.ai/api-dashboard/key-manager).\n>\n> ## Rate limits\n>\n> Requests per minute and tokens per minute. Anything over a limit answers `429`.\n>\n> | Endpoint | Free | Paid | Premium |\n> |---|---|---|---|\n> | `/v1/embeddings` | 500 RPM · 1M TPM | 500 RPM · 10M TPM | 5,000 RPM · 100M TPM |\n> | `/v1/rerank` | 500 RPM · 1M TPM | 500 RPM · 10M TPM | 5,000 RPM · 100M TPM |\n> | `/v1/chat/completions` | 100 RPM · 500K TPM | 100 RPM · 5M TPM | 1,000 RPM · 50M TPM |\n>\n> ## Errors\n>\n> Failures carry a `detail`, a `code` from the table below and the `request_id` to quote in a support request. `/v1/chat/completions` is the exception: it answers in OpenAI&#39;s error envelope, with the same code inside it.\n>\n> | Code | Status | Meaning |\n> |---|---|---|\n> | `INPUT_INVALID_LABELS` | 400 | Invalid training labels |\n> | `INPUT_LABEL_LIMIT_EXCEEDED` | 400 | Label limit exceeded: &lt;current&gt; labels provided, maximum &lt;limit&gt; allowed for your plan |\n> | `INPUT_MODEL_NOT_FOUND` | 400 | Model &#39;&lt;model&gt;&#39; not found |\n> | `INPUT_TOKEN_LIMIT_EXCEEDED` | 400 | Input text exceeds the model&#39;s maximum of &lt;`max_tokens`&gt; tokens |\n> | `AUTH_INVALID_API_KEY` | 401 | Invalid API key |\n> | `AUTH_INVALID_FORMAT` | 401 | Invalid authorization format |\n> | `AUTH_MISSING_API_KEY` | 401 | Authentication required |\n> | `AUTHZ_INSUFFICIENT_BALANCE` | 403 | Insufficient account balance |\n> | `AUTHZ_RESOURCE_LIMIT_EXCEEDED` | 403 | Resource limit exceeded for your plan |\n> | `RESOURCE_NOT_FOUND` | 404 | &lt;`resource_type`&gt; &#39;&lt;`resource_id`&gt;&#39; not found or access denied |\n> | `CONFLICT_RESOURCE_BUSY` | 409 | &lt;`resource_type`&gt; &#39;&lt;`resource_id`&gt;&#39; is currently being modified |\n> | `RATE_CONCURRENCY_LIMIT_EXCEEDED` | 429 | Concurrency limit exceeded: &lt;current&gt;/&lt;limit&gt; concurrent requests |\n> | `RATE_IP_LIMIT_EXCEEDED` | 429 | IP rate limit exceeded |\n> | `RATE_REQUEST_LIMIT_EXCEEDED` | 429 | Request rate limit exceeded: &lt;current&gt;/&lt;limit&gt; requests per minute |\n> | `RATE_TOKEN_LIMIT_EXCEEDED` | 429 | Token rate limit exceeded: &lt;current&gt;/&lt;limit&gt; tokens per minute |\n> | `INTERNAL_ERROR` | 500 | An unexpected error occurred |\n> | `SERVICE_UNAVAILABLE` | 503 | Service temporarily unavailable |\n> | `SERVICE_TIMEOUT` | 504 | Service request timed out |",
+      "An OpenAI chat completion, or a stream of `chat.completion.chunk` events when `stream` is true",
+      "Available datacenter locations.",
+      "Error message if job failed.",
+      "HuggingFace model ID.",
+      "ISO 8601 timestamp when job completed (if finished).",
+      "ISO 8601 timestamp when job was created.",
+      "List of embeddings, one per input item. A sparse model returns each as a map of token to weight instead of a vector.",
+      "Maximum context length in tokens.",
+      "Model description.",
+      "Number of dimensions for output embeddings (1-1024).",
+      "Object type, always `list`.",
+      "Ranked documents, sorted by relevance score descending.",
+      "Successful Response",
+      "The model to use.",
+      "The model used for reranking.",
+      "The model used to generate the embeddings.",
+      "Token usage statistics.",
+      "URL to download error JSONL for failed lines.",
+      "Unique identifier for the batch job.",
+      "Unix timestamp when the model was released."
+    ]
+  }
+}

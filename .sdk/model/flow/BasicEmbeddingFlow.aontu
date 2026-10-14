@@ -1,0 +1,18 @@
+# BasicEmbeddingFlow
+
+main: kit: flow: BasicEmbeddingFlow:
+{
+  entity: "embedding",
+  kind: "basic",
+  name: "BasicEmbeddingFlow",
+  step: [
+    {
+      i: {
+        ref: "embedding_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicEmbeddingFlow"
+}

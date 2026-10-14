@@ -1,0 +1,88 @@
+{
+  "existing": {
+    "generative_model": {
+      "GENERATIVE_MODEL00": {
+        "frequency_penalty": "s96",
+        "logit_bias": "s97",
+        "logprobs": "s98",
+        "max_completion_tokens": "s99",
+        "messages": [],
+        "model": "s9b",
+        "presence_penalty": "s9c",
+        "response_format": "s9d",
+        "seed": "s9e",
+        "stop": "s9f",
+        "stream": true,
+        "stream_options": "sa1",
+        "temperature": "sa2",
+        "top_logprobs": "sa3",
+        "top_p": "sa4",
+        "id": "GENERATIVE_MODEL00"
+      },
+      "GENERATIVE_MODEL01": {
+        "frequency_penalty": "s12c",
+        "logit_bias": "s12d",
+        "logprobs": "s12e",
+        "max_completion_tokens": "s12f",
+        "messages": [],
+        "model": "s131",
+        "presence_penalty": "s132",
+        "response_format": "s133",
+        "seed": "s134",
+        "stop": "s135",
+        "stream": true,
+        "stream_options": "s137",
+        "temperature": "s138",
+        "top_logprobs": "s139",
+        "top_p": "s13a",
+        "id": "GENERATIVE_MODEL01"
+      },
+      "GENERATIVE_MODEL02": {
+        "frequency_penalty": "s1c2",
+        "logit_bias": "s1c3",
+        "logprobs": "s1c4",
+        "max_completion_tokens": "s1c5",
+        "messages": [],
+        "model": "s1c7",
+        "presence_penalty": "s1c8",
+        "response_format": "s1c9",
+        "seed": "s1ca",
+        "stop": "s1cb",
+        "stream": true,
+        "stream_options": "s1cd",
+        "temperature": "s1ce",
+        "top_logprobs": "s1cf",
+        "top_p": "s1d0",
+        "id": "GENERATIVE_MODEL02"
+      }
+    }
+  },
+  "new": {
+    "generative_model": {
+      "generative_model_ref01": {
+        "frequency_penalty": "s258",
+        "logit_bias": "s259",
+        "logprobs": "s25a",
+        "max_completion_tokens": "s25b",
+        "messages": [],
+        "model": "s25d",
+        "presence_penalty": "s25e",
+        "response_format": "s25f",
+        "seed": "s260",
+        "stop": "s261",
+        "stream": true,
+        "stream_options": "s263",
+        "temperature": "s264",
+        "top_logprobs": "s265",
+        "top_p": "s266"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/chat/completions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

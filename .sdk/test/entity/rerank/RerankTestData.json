@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "rerank": {
+      "RERANK00": {
+        "model": "s28",
+        "object": "s29",
+        "results": [],
+        "usage": {},
+        "id": "RERANK00"
+      },
+      "RERANK01": {
+        "model": "s50",
+        "object": "s51",
+        "results": [],
+        "usage": {},
+        "id": "RERANK01"
+      },
+      "RERANK02": {
+        "model": "s78",
+        "object": "s79",
+        "results": [],
+        "usage": {},
+        "id": "RERANK02"
+      }
+    }
+  },
+  "new": {
+    "rerank": {
+      "rerank_ref01": {
+        "model": "sa0",
+        "object": "sa1",
+        "results": [],
+        "usage": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/rerank": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

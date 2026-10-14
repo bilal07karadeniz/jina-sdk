@@ -1,0 +1,70 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 7
+  metrics: count: path: 10
+  metrics: count: method: 11
+
+  entity: batch: {
+    path: "/v1/batch/{batch_id}": {
+      rename: param: "batch_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/v1/batches": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: batch_embedding: {
+    path: "/v1/batch/{batch_id}/errors": {
+      action: "errors": {}
+      rename: param: "batch_id": *"id"
+      op: load: method: *GET
+    }
+    path: "/v1/batch/{batch_id}/output": {
+      action: "output": {}
+      rename: param: "batch_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: batch_status: {
+    path: "/v1/batch/embeddings": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: embedding: {
+    path: "/v1/embeddings": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: generative_model: {
+    path: "/v1/chat/completions": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: model: {
+    path: "/v1/models": {
+      op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
+    }
+    path: "/v1/models/{model_id}": {
+      rename: param: "model_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: rerank: {
+    path: "/v1/rerank": {
+      op: create: method: *POST
+    }
+  }
+
+}

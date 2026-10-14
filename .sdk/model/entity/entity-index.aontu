@@ -1,0 +1,9 @@
+# Entity Models
+
+@"./batch.aontu"
+@"./batch_embedding.aontu"
+@"./batch_status.aontu"
+@"./embedding.aontu"
+@"./generative_model.aontu"
+@"./model.aontu"
+@"./rerank.aontu"

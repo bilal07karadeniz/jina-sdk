@@ -1,0 +1,18 @@
+# BasicGenerativeModelFlow
+
+main: kit: flow: BasicGenerativeModelFlow:
+{
+  entity: "generative_model",
+  kind: "basic",
+  name: "BasicGenerativeModelFlow",
+  step: [
+    {
+      i: {
+        ref: "generative_model_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicGenerativeModelFlow"
+}

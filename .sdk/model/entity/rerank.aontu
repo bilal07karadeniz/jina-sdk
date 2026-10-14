@@ -1,0 +1,88 @@
+# Entity: rerank
+
+main: kit: entity: rerank: {
+
+  alias: field: {}
+
+  fields: {
+    model: {
+      h: "Model"
+      n: "model"
+      r: true
+      sh: "The model used for reranking."
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      sh: "Object type, always `list`."
+      t: "`$STRING`"
+    }
+    results: {
+      h: "Results"
+      n: "results"
+      r: true
+      sh: "Ranked documents, sorted by relevance score descending."
+      t: "`$ARRAY`"
+      union: {
+        branches: 3
+        count: 1
+        depth: 3
+      }
+    }
+    usage: {
+      h: "Usage"
+      n: "usage"
+      r: true
+      sh: "Token usage statistics."
+      t: "`$OBJECT`"
+    }
+  }
+
+  name: "rerank"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "documents"
+            "max_doc_length"
+            "model"
+            "query"
+            "return_documents"
+            "return_embeddings"
+            "top_n"
+          ]
+          co: {
+            id: "POST /v1/rerank"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/v1/rerank"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "rerank"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

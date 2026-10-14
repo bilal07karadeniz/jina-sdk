@@ -1,0 +1,247 @@
+# Entity: batch
+
+main: kit: entity: batch: {
+
+  alias: field: {}
+
+  fields: {
+    batch_id: {
+      h: "Batch Id"
+      n: "batch_id"
+      r: true
+      sh: "Unique identifier for the batch job."
+      t: "`$STRING`"
+    }
+    completed_at: {
+      h: "Completed At"
+      n: "completed_at"
+      r: false
+      sh: "ISO 8601 timestamp when job completed (if finished)."
+      t: "`$ANY`"
+    }
+    created_at: {
+      h: "Created At"
+      n: "created_at"
+      r: true
+      sh: "ISO 8601 timestamp when job was created."
+      t: "`$STRING`"
+    }
+    error: {
+      h: "Error"
+      n: "error"
+      r: false
+      sh: "Error message if job failed."
+      t: "`$ANY`"
+    }
+    error_file_url: {
+      h: "Error File Url"
+      n: "error_file_url"
+      r: false
+      sh: "URL to download error JSONL for failed lines."
+      t: "`$ANY`"
+    }
+    expires_at: {
+      h: "Expires At"
+      n: "expires_at"
+      r: false
+      sh: "ISO 8601 timestamp when output URL expires (created_at + 24h)."
+      t: "`$ANY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    model: {
+      h: "Model"
+      n: "model"
+      r: true
+      sh: "The model used for embedding."
+      t: "`$STRING`"
+    }
+    output_url: {
+      h: "Output Url"
+      n: "output_url"
+      r: false
+      sh: "Signed URL to download output JSONL (24h expiry)."
+      t: "`$ANY`"
+    }
+    stats: {
+      h: "Stats"
+      n: "stats"
+      r: false
+      sh: "Processing statistics."
+      t: "`$ANY`"
+    }
+    status: {
+      h: "Status"
+      n: "status"
+      r: true
+      sh: "Current status of the batch job."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "batch"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /v1/batches"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: 20
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/batches"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "batches"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /v1/batch/{batch_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "batch_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/batch/{batch_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              batch_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "batch"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /v1/batch/{batch_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "batch_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/v1/batch/{batch_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              batch_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "batch"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,97 @@
+# Entity: embedding
+
+main: kit: entity: embedding: {
+
+  alias: field: {}
+
+  fields: {
+    data: {
+      h: "Data"
+      n: "data"
+      r: true
+      sh: "List of embeddings, one per input item."
+      t: "`$ANY`"
+      union: {
+        branches: 3
+        count: 3
+        depth: 5
+      }
+    }
+    model: {
+      h: "Model"
+      n: "model"
+      r: true
+      sh: "The model used to generate the embeddings."
+      t: "`$STRING`"
+    }
+    object: {
+      h: "Object"
+      n: "object"
+      r: false
+      sh: "Object type, always `list`."
+      t: "`$STRING`"
+    }
+    usage: {
+      h: "Usage"
+      n: "usage"
+      r: true
+      sh: "Token usage statistics."
+      t: "`$ANY`"
+      union: {
+        branches: 3
+        count: 1
+        depth: 0
+      }
+    }
+  }
+
+  name: "embedding"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "dimensions"
+            "embedding_type"
+            "input"
+            "input_type"
+            "late_chunking"
+            "model"
+            "normalized"
+            "return_multivector"
+            "return_tokenized_input"
+            "task"
+            "truncate"
+          ]
+          co: {
+            id: "POST /v1/embeddings"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/v1/embeddings"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "embeddings"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

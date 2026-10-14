@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "embedding": {
+      "EMBEDDING00": {
+        "data": "s28",
+        "model": "s29",
+        "object": "s2a",
+        "usage": "s2b",
+        "id": "EMBEDDING00"
+      },
+      "EMBEDDING01": {
+        "data": "s50",
+        "model": "s51",
+        "object": "s52",
+        "usage": "s53",
+        "id": "EMBEDDING01"
+      },
+      "EMBEDDING02": {
+        "data": "s78",
+        "model": "s79",
+        "object": "s7a",
+        "usage": "s7b",
+        "id": "EMBEDDING02"
+      }
+    }
+  },
+  "new": {
+    "embedding": {
+      "embedding_ref01": {
+        "data": "sa0",
+        "model": "sa1",
+        "object": "sa2",
+        "usage": "sa3"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/embeddings": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

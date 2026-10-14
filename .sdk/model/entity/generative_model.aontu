@@ -1,0 +1,167 @@
+# Entity: generative_model
+
+main: kit: entity: generative_model: {
+
+  alias: field: {}
+
+  fields: {
+    frequency_penalty: {
+      h: "Frequency Penalty"
+      n: "frequency_penalty"
+      r: false
+      t: "`$ANY`"
+    }
+    logit_bias: {
+      h: "Logit Bias"
+      n: "logit_bias"
+      r: false
+      t: "`$ANY`"
+    }
+    logprobs: {
+      h: "Logprobs"
+      n: "logprobs"
+      r: false
+      t: "`$ANY`"
+    }
+    max_completion_tokens: {
+      h: "Max Completion Tokens"
+      n: "max_completion_tokens"
+      r: false
+      t: "`$ANY`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 3
+      }
+    }
+    model: {
+      h: "Model"
+      n: "model"
+      r: true
+      sh: "The model to use."
+      t: "`$STRING`"
+    }
+    presence_penalty: {
+      h: "Presence Penalty"
+      n: "presence_penalty"
+      r: false
+      t: "`$ANY`"
+    }
+    response_format: {
+      h: "Response Format"
+      n: "response_format"
+      r: false
+      t: "`$ANY`"
+    }
+    seed: {
+      h: "Seed"
+      n: "seed"
+      r: false
+      t: "`$ANY`"
+    }
+    stop: {
+      h: "Stop"
+      n: "stop"
+      r: false
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    stream: {
+      h: "Stream"
+      n: "stream"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    stream_options: {
+      h: "Stream Options"
+      n: "stream_options"
+      r: false
+      t: "`$ANY`"
+    }
+    temperature: {
+      h: "Temperature"
+      n: "temperature"
+      r: false
+      t: "`$ANY`"
+    }
+    top_logprobs: {
+      h: "Top Logprobs"
+      n: "top_logprobs"
+      r: false
+      t: "`$ANY`"
+    }
+    top_p: {
+      h: "Top P"
+      n: "top_p"
+      r: false
+      t: "`$ANY`"
+    }
+  }
+
+  name: "generative_model"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          bf: [
+            "frequency_penalty"
+            "logit_bias"
+            "logprobs"
+            "max_completion_tokens"
+            "messages"
+            "model"
+            "presence_penalty"
+            "response_format"
+            "seed"
+            "stop"
+            "stream"
+            "stream_options"
+            "temperature"
+            "top_logprobs"
+            "top_p"
+          ]
+          co: {
+            id: "POST /v1/chat/completions"
+            source: "openapi3"
+            version: 2
+          }
+          m: "POST"
+          o: "/v1/chat/completions"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "chat"
+            }
+            {
+              lit: "completions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

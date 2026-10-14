@@ -1,0 +1,78 @@
+{
+  "existing": {
+    "batch": {
+      "BATCH00": {
+        "batch_id": "BATCH01",
+        "completed_at": "s6f",
+        "created_at": "s70",
+        "error": "s71",
+        "error_file_url": "s72",
+        "expires_at": "s73",
+        "id": "BATCH00",
+        "model": "s75",
+        "output_url": "s76",
+        "stats": "s77",
+        "status": "s78"
+      },
+      "BATCH01": {
+        "batch_id": "BATCH01",
+        "completed_at": "sdd",
+        "created_at": "sde",
+        "error": "sdf",
+        "error_file_url": "se0",
+        "expires_at": "se1",
+        "id": "BATCH01",
+        "model": "se3",
+        "output_url": "se4",
+        "stats": "se5",
+        "status": "se6"
+      },
+      "BATCH02": {
+        "batch_id": "BATCH01",
+        "completed_at": "s14b",
+        "created_at": "s14c",
+        "error": "s14d",
+        "error_file_url": "s14e",
+        "expires_at": "s14f",
+        "id": "BATCH02",
+        "model": "s151",
+        "output_url": "s152",
+        "stats": "s153",
+        "status": "s154"
+      }
+    }
+  },
+  "new": {
+    "batch": {
+      "batch_ref01": {
+        "batch_id": "BATCH01",
+        "completed_at": "s1b9",
+        "created_at": "s1ba",
+        "error": "s1bb",
+        "error_file_url": "s1bc",
+        "expires_at": "s1bd",
+        "model": "s1bf",
+        "output_url": "s1c0",
+        "stats": "s1c1",
+        "status": "s1c2"
+      }
+    }
+  },
+  "requests": {
+    "GET /v1/batches": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/batch/{batch_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /v1/batch/{batch_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

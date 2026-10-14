@@ -1,0 +1,9 @@
+# Flows
+
+@"./BasicBatchEmbeddingFlow.aontu"
+@"./BasicBatchFlow.aontu"
+@"./BasicBatchStatusFlow.aontu"
+@"./BasicEmbeddingFlow.aontu"
+@"./BasicGenerativeModelFlow.aontu"
+@"./BasicModelFlow.aontu"
+@"./BasicRerankFlow.aontu"

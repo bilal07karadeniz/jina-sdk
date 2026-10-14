@@ -1,0 +1,203 @@
+# Entity: model
+
+main: kit: entity: model: {
+
+  alias: field: {}
+
+  fields: {
+    context_length: {
+      h: "Context Length"
+      n: "context_length"
+      r: true
+      sh: "Maximum context length in tokens."
+      t: "`$INTEGER`"
+    }
+    created: {
+      h: "Created"
+      n: "created"
+      r: true
+      sh: "Unix timestamp when the model was released."
+      t: "`$INTEGER`"
+    }
+    datacenters: {
+      h: "Datacenters"
+      n: "datacenters"
+      r: true
+      sh: "Available datacenter locations."
+      t: "`$ARRAY`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: true
+      sh: "Model description."
+      t: "`$STRING`"
+    }
+    hugging_face_id: {
+      h: "Hugging Face Id"
+      n: "hugging_face_id"
+      r: true
+      sh: "HuggingFace model ID."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique model identifier (e.g., `jina-ai/jina-embeddings-v3`)."
+      t: "`$STRING`"
+    }
+    input_modalities: {
+      h: "Input Modalities"
+      n: "input_modalities"
+      r: true
+      sh: "Supported input modalities: `text`, `image`, `video`, `audio`."
+      t: "`$ARRAY`"
+    }
+    max_output_length: {
+      h: "Max Output Length"
+      n: "max_output_length"
+      r: true
+      sh: "Largest output the model produces: embedding dimensions for an embedding model, tokens for a generative one."
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Human-readable model name."
+      t: "`$STRING`"
+    }
+    output_modalities: {
+      h: "Output Modalities"
+      n: "output_modalities"
+      r: true
+      sh: "Output types: `embeddings`, `text`."
+      t: "`$ARRAY`"
+    }
+    pricing: {
+      h: "Pricing"
+      n: "pricing"
+      r: true
+      sh: "Pricing information."
+      t: "`$OBJECT`"
+    }
+    quantization: {
+      h: "Quantization"
+      n: "quantization"
+      r: true
+      sh: "Quantization level, if any."
+      t: "`$STRING`"
+    }
+    supported_features: {
+      h: "Supported Features"
+      n: "supported_features"
+      r: true
+      sh: "Supported features."
+      t: "`$ARRAY`"
+    }
+    supported_sampling_parameters: {
+      h: "Supported Sampling Parameters"
+      n: "supported_sampling_parameters"
+      r: true
+      sh: "Supported sampling parameters."
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "model"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /v1/models"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/v1/models"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "models"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /v1/models/{model_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "model_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/v1/models/{model_id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              model_id: "id"
+            }
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "v1"
+            }
+            {
+              lit: "models"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

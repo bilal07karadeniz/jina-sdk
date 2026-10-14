@@ -1,0 +1,85 @@
+{
+  "existing": {
+    "model": {
+      "MODEL00": {
+        "context_length": 140,
+        "created": 141,
+        "datacenters": [],
+        "description": "s8f",
+        "hugging_face_id": "HUGGING_FACE01",
+        "id": "MODEL00",
+        "input_modalities": [],
+        "max_output_length": 147,
+        "name": "s94",
+        "output_modalities": [],
+        "pricing": {},
+        "quantization": "s97",
+        "supported_features": [],
+        "supported_sampling_parameters": []
+      },
+      "MODEL01": {
+        "context_length": 280,
+        "created": 281,
+        "datacenters": [],
+        "description": "s11b",
+        "hugging_face_id": "HUGGING_FACE01",
+        "id": "MODEL01",
+        "input_modalities": [],
+        "max_output_length": 287,
+        "name": "s120",
+        "output_modalities": [],
+        "pricing": {},
+        "quantization": "s123",
+        "supported_features": [],
+        "supported_sampling_parameters": []
+      },
+      "MODEL02": {
+        "context_length": 420,
+        "created": 421,
+        "datacenters": [],
+        "description": "s1a7",
+        "hugging_face_id": "HUGGING_FACE01",
+        "id": "MODEL02",
+        "input_modalities": [],
+        "max_output_length": 427,
+        "name": "s1ac",
+        "output_modalities": [],
+        "pricing": {},
+        "quantization": "s1af",
+        "supported_features": [],
+        "supported_sampling_parameters": []
+      }
+    }
+  },
+  "new": {
+    "model": {
+      "model_ref01": {
+        "context_length": 560,
+        "created": 561,
+        "datacenters": [],
+        "description": "s233",
+        "hugging_face_id": "HUGGING_FACE01",
+        "input_modalities": [],
+        "max_output_length": 567,
+        "name": "s238",
+        "output_modalities": [],
+        "pricing": {},
+        "quantization": "s23b",
+        "supported_features": [],
+        "supported_sampling_parameters": []
+      }
+    }
+  },
+  "requests": {
+    "GET /v1/models": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/models/{model_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

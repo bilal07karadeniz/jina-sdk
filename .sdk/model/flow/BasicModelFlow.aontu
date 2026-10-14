@@ -1,0 +1,44 @@
+# BasicModelFlow
+
+main: kit: flow: BasicModelFlow:
+{
+  entity: "model",
+  kind: "basic",
+  name: "BasicModelFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "model_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "model_ref01",
+        srcdatavar: "model_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "model01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-model_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicModelFlow"
+}

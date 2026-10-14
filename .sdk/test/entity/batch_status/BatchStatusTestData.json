@@ -1,0 +1,92 @@
+{
+  "existing": {
+    "batch_status": {
+      "BATCH_STATUS00": {
+        "batch_id": "BATCH01",
+        "completed_at": "sa1",
+        "created_at": "sa2",
+        "dimensions": "sa3",
+        "error": "sa4",
+        "error_file_url": "sa5",
+        "expires_at": "sa6",
+        "input": "sa7",
+        "input_url": "sa8",
+        "model": "sa9",
+        "normalized": "saa",
+        "output_url": "sab",
+        "stats": "sac",
+        "status": "sad",
+        "task": "sae",
+        "webhook_url": "saf",
+        "id": "BATCH_STATUS00"
+      },
+      "BATCH_STATUS01": {
+        "batch_id": "BATCH01",
+        "completed_at": "s141",
+        "created_at": "s142",
+        "dimensions": "s143",
+        "error": "s144",
+        "error_file_url": "s145",
+        "expires_at": "s146",
+        "input": "s147",
+        "input_url": "s148",
+        "model": "s149",
+        "normalized": "s14a",
+        "output_url": "s14b",
+        "stats": "s14c",
+        "status": "s14d",
+        "task": "s14e",
+        "webhook_url": "s14f",
+        "id": "BATCH_STATUS01"
+      },
+      "BATCH_STATUS02": {
+        "batch_id": "BATCH01",
+        "completed_at": "s1e1",
+        "created_at": "s1e2",
+        "dimensions": "s1e3",
+        "error": "s1e4",
+        "error_file_url": "s1e5",
+        "expires_at": "s1e6",
+        "input": "s1e7",
+        "input_url": "s1e8",
+        "model": "s1e9",
+        "normalized": "s1ea",
+        "output_url": "s1eb",
+        "stats": "s1ec",
+        "status": "s1ed",
+        "task": "s1ee",
+        "webhook_url": "s1ef",
+        "id": "BATCH_STATUS02"
+      }
+    }
+  },
+  "new": {
+    "batch_status": {
+      "batch_status_ref01": {
+        "batch_id": "BATCH01",
+        "completed_at": "s281",
+        "created_at": "s282",
+        "dimensions": "s283",
+        "error": "s284",
+        "error_file_url": "s285",
+        "expires_at": "s286",
+        "input": "s287",
+        "input_url": "s288",
+        "model": "s289",
+        "normalized": "s28a",
+        "output_url": "s28b",
+        "stats": "s28c",
+        "status": "s28d",
+        "task": "s28e",
+        "webhook_url": "s28f"
+      }
+    }
+  },
+  "requests": {
+    "POST /v1/batch/embeddings": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

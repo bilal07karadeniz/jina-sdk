@@ -1,0 +1,32 @@
+{
+  "existing": {
+    "batch_embedding": {
+      "BATCH_EMBEDDING00": {
+        "id": "BATCH_EMBEDDING00"
+      },
+      "BATCH_EMBEDDING01": {
+        "id": "BATCH_EMBEDDING01"
+      },
+      "BATCH_EMBEDDING02": {
+        "id": "BATCH_EMBEDDING02"
+      }
+    }
+  },
+  "new": {
+    "batch_embedding": {
+      "batch_embedding_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /v1/batch/{batch_id}/errors": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /v1/batch/{batch_id}/output": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

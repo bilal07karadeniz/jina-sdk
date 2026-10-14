@@ -1,0 +1,18 @@
+# BasicRerankFlow
+
+main: kit: flow: BasicRerankFlow:
+{
+  entity: "rerank",
+  kind: "basic",
+  name: "BasicRerankFlow",
+  step: [
+    {
+      i: {
+        ref: "rerank_ref01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicRerankFlow"
+}

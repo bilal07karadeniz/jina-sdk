@@ -1,0 +1,32 @@
+# BasicBatchEmbeddingFlow
+
+main: kit: flow: BasicBatchEmbeddingFlow:
+{
+  entity: "batch_embedding",
+  kind: "basic",
+  name: "BasicBatchEmbeddingFlow",
+  step: [
+    {
+      i: {
+        ref: "batch_embedding_ref01",
+        srcdatavar: "batch_embedding_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        id: "batch_embedding01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-batch_embedding_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBatchEmbeddingFlow"
+}
